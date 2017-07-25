@@ -1,4 +1,8 @@
-<img src="{{ album.album_logo }}">
+{% extends 'base.html' %}
+{% block title %}Song Details{% endblock %}
+
+{% block body %}
+<img src="{{ album.album_logo_url }}">
 
 <h1>{{ album.album_title }}</h1>
 <h2>{{ album.artist }}</h2>
@@ -20,3 +24,4 @@
     {% endfor %}
     <br><br><input type="submit" value="Favorite">
 </form>
+{% endblock %}

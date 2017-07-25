@@ -10,4 +10,5 @@ urlpatterns = [
 
     # /music/<album_id>/favorite/
     url(r'^(?P<album_id>[0-9]+)/favorite/$', views.favorite, name='favorite'),
+
 ]

@@ -13,15 +13,31 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+from django.conf import settings
 from django.conf.urls import url, include
+from django.conf.urls.static import static
 from django.contrib import admin
 
 from music.views import myfunction
 
+from engine import views
+from engine.view import restviews
+
+
+
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
-    #url(r'^', myfunction),
-    url(r'^hello/', myfunction),
-    url(r'^music/', include('music.urls'))
+    url(r'^music/', include('music.urls')),
+    url(r'^music/hello/', myfunction),
+
+    url(r'^engine/?$', views.HomePageView.as_view()),
+    url(r'^engine/rest/?$', restviews.Operation.as_view()),
+
+    url(r'^engine/car/', views.easyfunction),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_URL)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_URL)
