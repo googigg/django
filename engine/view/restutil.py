@@ -1,13 +1,12 @@
 from rest_framework.response import Response
-
-from django.views.generic.base import TemplateView
 from rest_framework.views import APIView
 
-#To use APIView, 'rest_framework' add to INSTALLED_APPS in settings.py
+from engine.core.util.http import HttpUtil
+
+
+# To use APIView, 'rest_framework' add to INSTALLED_APPS in settings.py
+
 class Operation(APIView):
-    def post(self, request):
-        #print('[Operation][post]')
-        return Response('post')
 
     def get(self, request):
         param = request.GET.get('param', None)
@@ -19,3 +18,15 @@ class Operation(APIView):
         result['meta']['param'] = param
 
         return Response(result)
+
+    def post(self, request):
+        #print('[Operation][post]')
+        return Response('post')
+
+
+class ExtractHeader(APIView):
+
+    def get(self, request):
+        http = HttpUtil()
+        http.get_header_data(request)
+        return Response(http.get_header_data(request))

@@ -1,6 +1,7 @@
-class Cat:
-    def __init__(self, name):
-        self.name = name
+from engine.core.dataobjects.bases.Pet import Pet
+
+
+class Cat(Pet):
 
     def info(self):
         print('I am a cat and I am called', self.name)

@@ -1,12 +1,14 @@
 from django.shortcuts import render
-
-# Create your views here.
 from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import render, get_object_or_404
 from .models import Album, Song
 from django.http import Http404
 
+
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializers import AlbumSerializer
 
 def myfunction(request,):
     return HttpResponse("Hello World!")
@@ -52,3 +54,15 @@ def favorite(request, album_id):
         selected_song.is_favorite = True
         selected_song.save()
         return render(request, 'detail.html', {'album': album})
+
+
+# REST
+class ALbumList(APIView):
+
+    def get(self, request):
+        albums = Album.objects.all()
+        serializer = AlbumSerializer(albums, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        pass

@@ -21,7 +21,7 @@ from django.contrib import admin
 from music.views import myfunction
 
 from engine import views
-from engine.view import restviews
+from engine.view import restutil
 
 
 
@@ -33,9 +33,11 @@ urlpatterns = [
     url(r'^music/hello/', myfunction),
 
     url(r'^engine/?$', views.HomePageView.as_view()),
-    url(r'^engine/rest/?$', restviews.Operation.as_view()),
+    url(r'^engine/rest/?$', restutil.Operation.as_view()),
 
     url(r'^engine/car/', views.easyfunction),
+
+    url(r'^engine/rest/header/', restutil.ExtractHeader.as_view()),
 ]
 
 if settings.DEBUG:
