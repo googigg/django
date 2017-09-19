@@ -16,3 +16,8 @@ class Task:
         while True:
             schedule.run_pending()
             time.sleep(1)
+
+
+t = Task()
+t.run()
+

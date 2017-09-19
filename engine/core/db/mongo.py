@@ -22,3 +22,7 @@ class MongoTestDrive:
 
         post_id = self.posts.insert_one(post).inserted_id
         post_id
+
+print('hello')
+# m = MongoTestDrive()
+# m.add()
