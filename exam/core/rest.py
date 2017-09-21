@@ -1,7 +1,7 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from engine.core.util.http import HttpUtil
+from exam.core.util.http import HttpUtil
 
 
 # To use APIView, 'rest_framework' add to INSTALLED_APPS in settings.py
