@@ -2,16 +2,17 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    # /music/
-    url(r'^$', views.index, name='index'),
 
-    # /music/<album_id>
-    url(r'^(?P<album_id>[0-9]+)/$', views.detail, name='detail'),
+    # http://127.0.0.1:8000/exam/angular/?id=1
+    url(r'^angular/$', views.MyAngularTutorial.as_view()),
 
-    # /music/<album_id>/favorite/
-    url(r'^(?P<album_id>[0-9]+)/favorite/$', views.favorite, name='favorite'),
+    url(r'^angular/hello$', views.easyfunction),
 
-    # /music/rest/
-    url(r'^rest/?$', views.ALbumList.as_view()),
+    # url(r'^(?P<album_id>[0-9]+)/$', views.detail, name='detail'),
+    # url(r'^angular/<filepath>/?$', views.MyRouting.as_view()),
+
+    url(r'^angular/([\w\-]+)/$', views.MyAngularHTMLPath.as_view()),
+    # or
+    # url(r'^angular/([\w\-]+)/$', views.myAngularHTMLPath),
 
 ]

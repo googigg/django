@@ -1,0 +1,91 @@
+# Wheel 0.25+ needed to install certain packages on CPython 3.5+
+# like Pillow and psycopg2
+# See http://bitly.com/wheel-building-fails-CPython-35
+# Verified bug on Python 3.5.1
+wheel==0.29.0
+
+# Bleeding edge Django
+django==1.10.6
+
+# Configuration
+django-environ==0.4.1
+
+# Forms
+django-braces==1.11.0
+django-crispy-forms==1.6.1
+
+# Models
+django-model-utils==2.6.1
+
+# Images
+Pillow==4.0.0
+
+# For user registration, either via email or social
+# Well-built with regular release cycles!
+django-allauth==0.31.0
+
+
+# Python-PostgreSQL Database Adapter
+psycopg2==2.7
+
+# Unicode slugification
+awesome-slugify==1.6.5
+
+# Time zones support
+pytz==2016.10
+
+# Redis support
+django-redis==4.7.0
+redis>=2.10.5
+
+
+# Your custom requirements go here
+# Reversion
+django-reversion==2.0.8
+
+# Soft-Delete
+django-safedelete==0.4.0
+
+# Health Check
+# https://github.com/KristianOellegaard/django-health-check
+django-health-check==2.2.3
+
+
+# Django Rest Framework and Extension
+djangorestframework==3.6.2
+drf-extensions==0.3.1
+django-filter==0.15.3
+djangorestframework-filters==0.9.1
+
+
+# Django JWT
+djangorestframework-jwt==1.10.0
+
+
+# Django JSON API
+djangorestframework-jsonapi==2.1.1
+
+
+# Django Auditor
+django-auditlog==0.4.3
+
+
+# DJango Slack
+django-slack==5.8.0
+
+
+# Django CORS Hearders
+django-cors-headers==2.0.2
+
+
+# django-autofixture
+django-autofixture==0.12.1
+
+# boto3
+boto3==1.0.0
+
+django_saml2_auth
+suds-jurko==0.6
+suds-py3==1.3.2.0
+suds-py3-fixes==1.2.0.2
+https://s3-ap-southeast-1.amazonaws.com/tisco.alpha.source/core/tisco-1.0.7.zip

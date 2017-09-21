@@ -10,7 +10,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializers import AlbumSerializer
 
-def myfunction(request,):
+def hello(request,):
     return HttpResponse("Hello World!")
 
 def index(request):
@@ -56,10 +56,10 @@ def favorite(request, album_id):
         return render(request, 'detail.html', {'album': album})
 
 
-# REST
+# return REST
 class ALbumList(APIView):
 
-    def get(self, request):
+    def get(self, request: object) -> object:
         albums = Album.objects.all()
         serializer = AlbumSerializer(albums, many=True)
         return Response(serializer.data)

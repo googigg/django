@@ -1,11 +1,9 @@
 'use strict';
 
-
 app.config(function($interpolateProvider) {
     $interpolateProvider.startSymbol('[[');
     $interpolateProvider.endSymbol(']]');
 });
-
 
 app.config(function($provide) {
   $provide.decorator('$log', function($delegate, $sniffer) {
@@ -20,3 +18,4 @@ app.config(function($provide) {
         return $delegate;
     });
 })
+

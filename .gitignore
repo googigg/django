@@ -1,12 +1,12 @@
 # Pycharm
 .idea/*
 #
-#engine/core/__pycache__/
-#engine/core/dataobjects/*
-#engine/core/db/__pycache__/
-#engine/core/schedule/__pycache__/
-#engine/core/util/__pycache__/
-#engine/view/__pycache__/
+#exam/core/__pycache__/
+#exam/core/dataobjects/*
+#exam/core/db/__pycache__/
+#exam/core/schedule/__pycache__/
+#exam/core/util/__pycache__/
+#exam/view/__pycache__/
 #music/__pycache__/serializers.cpython-34.pyc
 #music/static/images/
 

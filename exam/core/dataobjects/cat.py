@@ -1,4 +1,4 @@
-from engine.core.dataobjects.bases.Pet import Pet
+from exam.core.dataobjects.bases.Pet import Pet
 
 
 class Cat(Pet):

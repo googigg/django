@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 INSTALLED_APPS = [
     'music.apps.MusicConfig',
-    'engine.apps.EngineConfig',
+    'exam.apps.ExamConfig',
     'rest_framework',
 
     'django.contrib.admin',
@@ -125,3 +125,5 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+SQS_REGION_NAME = 'ap-southeast-1'

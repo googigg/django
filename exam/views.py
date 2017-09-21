@@ -1,18 +1,22 @@
 import boto3
 
+from django.shortcuts import render
+from django.conf import settings
+from rest_framework import status
+
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from django.http import HttpResponse
 
-from engine.core.dataobjects.car import Car
-from engine.core.dataobjects.cat import Cat
-from engine.core.util.http import HttpUtil
+from exam.core.dataobjects.car import Car
+from exam.core.dataobjects.cat import Cat
+from exam.core.util.http import HttpUtil
 
 from django.views.generic.base import TemplateView
 
 
-def easyfunction(request, ):
+def easyfunction(request):
     c = Car('Mazda')
     c.run()
     c.debug()
@@ -24,11 +28,15 @@ def easyfunction(request, ):
     cat = Cat('Kitty')
     cat.info()
 
-    http = HttpUtil()
-    http.get_header_data(request)
+    # http = HttpUtil()
+    # http.get_header_data(request)
 
-    str(http.get_header_data(request))
+    # temp = str(http.get_header_data(request))
+    # print(temp)
     return HttpResponse("Current Fuel: " + str(c) + " " + c.brand + " " + str(current_fuel))
+
+def myAngularHTMLPath(request, filepath):
+	return render(request, "angular/html/" + filepath + "")
 
 
 class HomePageView(TemplateView):
@@ -36,11 +44,19 @@ class HomePageView(TemplateView):
     template_name = "homepage.html"
 
     def get_context_data(self, **kwargs):
-        context = super(HomePageView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['latest_articles'] = 'hello'
         return context
 
+class MyAngularTutorial(APIView):
+	def get(self, request: object) -> object:
+		inq = request.GET.get('id', '1')
+		# http://127.0.0.1:8000/angular/?id=1
+		return render(request, "angular/" + str(inq) + ".html")
 
+class MyAngularHTMLPath(APIView):
+	def get(self, request: object, filepath) -> object:
+		return render(request, "angular/html/" + filepath + "")
 
 # using as a cron to retrieve from queue and insert to DE
 class UpdateSmppResponse(APIView):
@@ -102,8 +118,9 @@ class UpdateSmppResponse(APIView):
 
         return Response(result)
 
-    def get(self, request):
-        return self.post(request)
+    def get(self, request: object) -> object:
+        # return self.post(request
+        return Response(status=status.HTTP_200_OK)
 
 
 class SendSmppMessage(APIView):

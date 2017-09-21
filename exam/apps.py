@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class EngineConfig(AppConfig):
-    name = 'engine'
+class ExamConfig(AppConfig):
+    name = 'exam'

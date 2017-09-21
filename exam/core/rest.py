@@ -8,7 +8,7 @@ from exam.core.util.http import HttpUtil
 
 class Operation(APIView):
 
-    def get(self, request):
+    def get(self, request: object) -> object:
         param = request.GET.get('param', None)
 
         result = {}
@@ -26,7 +26,7 @@ class Operation(APIView):
 
 class ExtractHeader(APIView):
 
-    def get(self, request):
+    def get(self, request: object) -> object:
         http = HttpUtil()
         http.get_header_data(request)
         return Response(http.get_header_data(request))

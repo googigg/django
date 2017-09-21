@@ -18,26 +18,30 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
 
-from music.views import myfunction
 
-from engine import views
-from engine.view import restutil
+from exam.core import rest as restView
 
+from exam.views import HomePageView
+from exam.views import easyfunction
 
+from music.views import hello
 
 
 urlpatterns = [
+
     url(r'^admin/', admin.site.urls),
 
     url(r'^music/', include('music.urls')),
-    url(r'^music/hello/', myfunction),
+    url(r'^music/hello/', hello),
 
-    url(r'^engine/?$', views.HomePageView.as_view()),
-    url(r'^engine/rest/?$', restutil.Operation.as_view()),
+    url(r'^exam/', include('exam.urls')),
 
-    url(r'^engine/car/', views.easyfunction),
+    url(r'^exam/?$', HomePageView.as_view()),
+    url(r'^exam/car/', easyfunction),
 
-    url(r'^engine/rest/header/', restutil.ExtractHeader.as_view()),
+    url(r'^exam/rest/?$', restView.Operation.as_view()),
+    url(r'^exam/rest/header/', restView.ExtractHeader.as_view()),
+
 ]
 
 if settings.DEBUG:
