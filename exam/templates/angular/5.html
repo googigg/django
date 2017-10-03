@@ -1,5 +1,5 @@
 <!--
-Binding Tutorial
+HTTP Tutorial
 -->
 
 {% load static %}
@@ -7,18 +7,21 @@ Binding Tutorial
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 
 <body>
-
 <div ng-app="myApp" ng-controller="myCtrl">
-    First Name: <input type="text" ng-model="firstName"> Hello [[firstName]]
-    <p ng-bind="firstName"></p>
+
+<p>Today's welcome message is:</p>
+<h1>[[ myWelcome ]]</h1>
+
 </div>
-<!-- <img src="{% static 'images/a.jpg' %}"/> -->
+
 <script>
 var app = angular.module('myApp', []);
-
-app.controller('myCtrl', function($scope) {
-    $scope.firstName = "John";
-    $scope.lastName = "Doe";
+app.controller('myCtrl', function($scope, $http) {
+    $http.get("5")
+    .then(function(response) {
+        alert(response.data);
+        $scope.myWelcome = response.data;
+    });
 });
 </script>
 

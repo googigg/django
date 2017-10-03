@@ -19,7 +19,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 
 
-from exam.core import rest as restView
+from exam.core import rest as rest_view
 
 from exam.views import HomePageView
 from exam.views import easyfunction
@@ -39,8 +39,9 @@ urlpatterns = [
     url(r'^exam/?$', HomePageView.as_view()),
     url(r'^exam/car/', easyfunction),
 
-    url(r'^exam/rest/?$', restView.Operation.as_view()),
-    url(r'^exam/rest/header/', restView.ExtractHeader.as_view()),
+    url(r'^exam/rest/?$', rest_view.Operation.as_view()),
+    url(r'^exam/rest/header/', rest_view.ExtractHeader.as_view()),
+
 
 ]
 

@@ -1,0 +1,25 @@
+<!--
+Filter to formatter Tutorial
+-->
+
+{% load static %}
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+<body>
+<div ng-app="myApp" ng-controller="personCtrl">
+
+<p>The name is [[ lastName | uppercase ]]</p>
+
+</div>
+
+<script>
+var app = angular.module('myApp', []).controller('personCtrl', function($scope) {
+    $scope.firstName = "John",
+    $scope.lastName = "Doe"
+});
+</script>
+
+<script src="{% static 'js/config/config.js' %}"></script>
+</body>
+</html>
