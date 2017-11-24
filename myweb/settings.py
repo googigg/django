@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 INSTALLED_APPS = [
     'music.apps.MusicConfig',
@@ -127,3 +126,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 SQS_REGION_NAME = 'ap-southeast-1'
+
+HELLO = 'WORLD'

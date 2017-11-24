@@ -13,8 +13,8 @@ class Operation(MyApiView):
         if 'param' in request.GET and request.GET['param'] != "":
             print('there is something.')
 
-        # bad way to declare dict variable like this
-        result = {}
+        # bad way to declare dict variable like this result = {}
+        result = dict()
         result['meta'] = {}
         result['meta']['status'] = '00'
         result['meta']['message'] = 'Completed'
@@ -43,7 +43,6 @@ class Operation(MyApiView):
 
 
 class ExtractHeader(MyApiView):
-
     def get(self, request: object) -> object:
         http = HttpUtil()
         http.get_header_data(request)

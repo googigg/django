@@ -1,0 +1,19 @@
+<!--
+Call Service to access Python
+-->
+
+{% load static %}
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+<body>
+<div ng-app="myApp" ng-controller="personCtrl">
+    <form>
+        hello3
+        <input type="text" pattern="[a-zA-Z0-9]{6}" name="hello" required/>
+        <input type="text" ng-pattern="/^[a-zA-Z]*$/" name="world" required/>
+        <input type="submit" value="OK" />
+    </form>
+</div>
+</body>
+</html>

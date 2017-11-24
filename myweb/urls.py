@@ -22,7 +22,7 @@ from django.contrib import admin
 from exam.core import rest as rest_view
 
 from exam.views import HomePageView
-from exam.views import easyfunction
+from exam.views import easy_function
 
 from music.views import hello
 
@@ -37,11 +37,15 @@ urlpatterns = [
     url(r'^exam/', include('exam.urls')),
 
     url(r'^exam/?$', HomePageView.as_view()),
-    url(r'^exam/car/', easyfunction),
+    url(r'^exam/car/', easy_function),
 
     url(r'^exam/rest/?$', rest_view.Operation.as_view()),
     url(r'^exam/rest/header/', rest_view.ExtractHeader.as_view()),
 
+    # angular 7
+    # url(r'^get_something_from_angular_to_python/?$', views.get_hello.as_view()),
+
+    url(r'^restapi/', include('restapi.urls')),
 
 ]
 

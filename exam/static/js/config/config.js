@@ -7,12 +7,12 @@ app.config(function($interpolateProvider) {
 
 app.config(function($provide) {
   $provide.decorator('$log', function($delegate, $sniffer) {
-        var _log = $delegate.log; //Saving the original behavior
+        var _log = $delegate.log; // saving the original behavior
 
         $delegate.log = function(message) { };
         $delegate.error = function(message) {
             // alert(message);
-            // Code here for
+            // code here for
         }
 
         return $delegate;
