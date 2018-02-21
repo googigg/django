@@ -10,7 +10,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializers import AlbumSerializer
 
-def hello(request):
+def hello(request,):
     return HttpResponse("Hello World!")
 
 def index(request):
